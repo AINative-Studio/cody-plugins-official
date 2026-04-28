@@ -1,0 +1,7 @@
+[
+  { "name": "zerodb-memory", "count": 0 },
+  { "name": "zerodb-vector", "count": 0 },
+  { "name": "github", "count": 0 },
+  { "name": "filesystem", "count": 0 },
+  { "name": "sequential-thinking", "count": 0 }
+]
