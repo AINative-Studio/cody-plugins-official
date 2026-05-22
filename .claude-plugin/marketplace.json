@@ -1,0 +1,28 @@
+{
+  "name": "cody-plugins-official",
+  "owner": {
+    "name": "AINative Studio",
+    "url": "https://ainative.studio"
+  },
+  "forceRemoveDeletedPlugins": false,
+  "plugins": [
+    {
+      "name": "browser-use-skills",
+      "description": "Domain-specific browser automation skills for 90+ websites (GitHub, YouTube, Amazon, LinkedIn, etc.) powered by browser-use agent harness.",
+      "version": "0.1.0",
+      "category": "automation",
+      "tags": ["browser", "web-scraping", "automation", "ai-agent"],
+      "strict": false,
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/browser-use/browser-harness",
+        "path": "agent-workspace/domain-skills",
+        "ref": "main"
+      },
+      "author": {
+        "name": "browser-use",
+        "url": "https://github.com/browser-use"
+      }
+    }
+  ]
+}
