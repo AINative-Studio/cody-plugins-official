@@ -7,21 +7,25 @@
   "forceRemoveDeletedPlugins": false,
   "plugins": [
     {
-      "name": "browser-use-skills",
-      "description": "Domain-specific browser automation skills for 90+ websites (GitHub, YouTube, Amazon, LinkedIn, etc.) powered by browser-use agent harness.",
+      "name": "cody-for-chrome",
+      "description": "Browser automation plugin for Cody. Connects to the Cody Chrome extension to give Cody control of your browser — navigate, click, fill forms, take screenshots, run JavaScript, read network requests, and more.",
       "version": "0.1.0",
       "category": "automation",
-      "tags": ["browser", "web-scraping", "automation", "ai-agent"],
+      "tags": ["browser", "chrome", "automation", "screenshot", "javascript"],
       "strict": false,
       "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/browser-use/browser-harness",
-        "path": "agent-workspace/domain-skills",
-        "ref": "main"
+        "source": "npm",
+        "package": "@ainative/cody-for-chrome-mcp"
       },
       "author": {
-        "name": "browser-use",
-        "url": "https://github.com/browser-use"
+        "name": "AINative Studio",
+        "url": "https://ainative.studio"
+      },
+      "mcpServers": {
+        "cody-for-chrome": {
+          "command": "node",
+          "args": ["node_modules/@ainative/cody-for-chrome-mcp/dist/index.js"]
+        }
       }
     }
   ]
