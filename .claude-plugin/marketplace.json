@@ -8,23 +8,174 @@
   "plugins": [
     {
       "name": "cody-for-chrome",
-      "description": "Browser automation plugin for Cody. Connects to the Cody Chrome extension to give Cody control of your browser — navigate, click, fill forms, take screenshots, run JavaScript, read network requests, and more.",
+      "description": "Browser automation plugin — control Chrome tabs, take screenshots, fill forms, run JavaScript, monitor network and console. Requires the Cody for Chrome browser extension.",
       "version": "0.1.0",
       "category": "automation",
       "tags": ["browser", "chrome", "automation", "screenshot", "javascript"],
       "strict": false,
-      "source": {
-        "source": "npm",
-        "package": "@ainative/cody-for-chrome-mcp"
-      },
-      "author": {
-        "name": "AINative Studio",
-        "url": "https://ainative.studio"
-      },
+      "source": { "source": "npm", "package": "@ainative/cody-for-chrome-mcp" },
+      "author": { "name": "AINative Studio", "url": "https://ainative.studio" },
       "mcpServers": {
         "cody-for-chrome": {
           "command": "node",
           "args": ["node_modules/@ainative/cody-for-chrome-mcp/dist/index.js"]
+        }
+      }
+    },
+    {
+      "name": "zerodb-memory",
+      "description": "Semantic vector memory for Cody — store, search, and retrieve memories across conversations using ZeroDB. Requires an AINative API key.",
+      "version": "2.0.8",
+      "category": "memory",
+      "tags": ["memory", "vector", "semantic-search", "embeddings", "zerodb"],
+      "strict": false,
+      "source": { "source": "npm", "package": "ainative-zerodb-mcp-server" },
+      "author": { "name": "AINative Studio", "url": "https://ainative.studio" },
+      "mcpServers": {
+        "zerodb-memory": {
+          "type": "http",
+          "url": "https://api.ainative.studio/v1/mcp/zerodb-memory-mcp/messages",
+          "headers": {
+            "x-api-key": "${AINATIVE_API_KEY}"
+          }
+        }
+      }
+    },
+    {
+      "name": "ainative-strapi",
+      "description": "Manage Strapi CMS content — blog posts, events, gallery items, tutorials, authors, categories, and tags. Supports local and remote Strapi instances.",
+      "version": "1.3.1",
+      "category": "cms",
+      "tags": ["cms", "strapi", "blog", "content", "headless"],
+      "strict": false,
+      "source": { "source": "npm", "package": "ainative-strapi-mcp-server" },
+      "author": { "name": "AINative Studio", "url": "https://ainative.studio" },
+      "mcpServers": {
+        "ainative-strapi": {
+          "command": "node",
+          "args": ["node_modules/ainative-strapi-mcp-server/index.js"],
+          "env": {
+            "STRAPI_URL": "${STRAPI_URL}",
+            "STRAPI_API_TOKEN": "${STRAPI_API_TOKEN}"
+          }
+        }
+      }
+    },
+    {
+      "name": "sequential-thinking",
+      "description": "Structured step-by-step reasoning — break complex problems into sequential thought steps with the ability to revise and branch reasoning paths.",
+      "version": "latest",
+      "category": "reasoning",
+      "tags": ["reasoning", "thinking", "planning", "chain-of-thought"],
+      "strict": false,
+      "source": { "source": "npm", "package": "@modelcontextprotocol/server-sequential-thinking" },
+      "author": { "name": "Anthropic", "url": "https://github.com/modelcontextprotocol" },
+      "mcpServers": {
+        "sequential-thinking": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+        }
+      }
+    },
+    {
+      "name": "github",
+      "description": "Interact with GitHub — manage repos, issues, pull requests, files, branches, and search code. Requires a GitHub Personal Access Token.",
+      "version": "latest",
+      "category": "devtools",
+      "tags": ["github", "git", "issues", "pull-requests", "repositories", "code-search"],
+      "strict": false,
+      "source": { "source": "npm", "package": "@modelcontextprotocol/server-github" },
+      "author": { "name": "Anthropic", "url": "https://github.com/modelcontextprotocol" },
+      "mcpServers": {
+        "github": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-github"],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+          }
+        }
+      }
+    },
+    {
+      "name": "railway",
+      "description": "Manage Railway deployments — projects, services, environments, variables, domains, and logs. Requires a Railway API token.",
+      "version": "latest",
+      "category": "devops",
+      "tags": ["railway", "deployment", "cloud", "infrastructure", "devops"],
+      "strict": false,
+      "source": { "source": "npm", "package": "@modelcontextprotocol/server-railway" },
+      "author": { "name": "Anthropic", "url": "https://github.com/modelcontextprotocol" },
+      "mcpServers": {
+        "railway": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-railway"],
+          "env": {
+            "RAILWAY_TOKEN": "${RAILWAY_TOKEN}"
+          }
+        }
+      }
+    },
+    {
+      "name": "filesystem",
+      "description": "Sandboxed local filesystem access — read, write, list, search, and move files within allowed directories you configure.",
+      "version": "latest",
+      "category": "filesystem",
+      "tags": ["filesystem", "files", "local", "read", "write"],
+      "strict": false,
+      "source": { "source": "npm", "package": "@modelcontextprotocol/server-filesystem" },
+      "author": { "name": "Anthropic", "url": "https://github.com/modelcontextprotocol" },
+      "mcpServers": {
+        "filesystem": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+        }
+      }
+    },
+    {
+      "name": "gmail",
+      "description": "Google Gmail integration — search threads, label messages, create drafts, and manage labels. Authenticates via OAuth.",
+      "version": "latest",
+      "category": "productivity",
+      "tags": ["gmail", "google", "email", "oauth"],
+      "strict": false,
+      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gmail" },
+      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "mcpServers": {
+        "gmail": {
+          "type": "http",
+          "url": "https://mcp.claude.ai/mcp/gmail"
+        }
+      }
+    },
+    {
+      "name": "google-drive",
+      "description": "Google Drive integration — list, search, read, create, copy, and download files. Authenticates via OAuth.",
+      "version": "latest",
+      "category": "productivity",
+      "tags": ["google-drive", "google", "files", "documents", "oauth"],
+      "strict": false,
+      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gdrive" },
+      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "mcpServers": {
+        "google-drive": {
+          "type": "http",
+          "url": "https://mcp.claude.ai/mcp/gdrive"
+        }
+      }
+    },
+    {
+      "name": "google-calendar",
+      "description": "Google Calendar integration — list, create, update, and delete events, respond to invites, suggest meeting times. Authenticates via OAuth.",
+      "version": "latest",
+      "category": "productivity",
+      "tags": ["google-calendar", "google", "calendar", "events", "scheduling", "oauth"],
+      "strict": false,
+      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gcal" },
+      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "mcpServers": {
+        "google-calendar": {
+          "type": "http",
+          "url": "https://mcp.claude.ai/mcp/gcal"
         }
       }
     }
