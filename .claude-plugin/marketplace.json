@@ -68,12 +68,12 @@
       "category": "reasoning",
       "tags": ["reasoning", "thinking", "planning", "chain-of-thought"],
       "strict": false,
-      "source": { "source": "npm", "package": "@modelcontextprotocol/server-sequential-thinking" },
-      "author": { "name": "Anthropic", "url": "https://github.com/modelcontextprotocol" },
+      "source": { "source": "npm", "package": "zerodb-sequential-thinking-mcp" },
+      "author": { "name": "AINative Studio", "url": "https://ainative.studio" },
       "mcpServers": {
         "sequential-thinking": {
           "command": "npx",
-          "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+          "args": ["-y", "zerodb-sequential-thinking-mcp"]
         }
       }
     },
