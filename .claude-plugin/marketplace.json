@@ -134,48 +134,48 @@
     {
       "name": "gmail",
       "description": "Google Gmail integration — search threads, label messages, create drafts, and manage labels. Authenticates via OAuth.",
-      "version": "latest",
+      "version": "0.4.0",
       "category": "productivity",
       "tags": ["gmail", "google", "email", "oauth"],
       "strict": false,
-      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gmail" },
-      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "source": { "source": "npm", "package": "@monsoft/mcp-gmail" },
+      "author": { "name": "Community", "url": "https://npmjs.com/package/@monsoft/mcp-gmail" },
       "mcpServers": {
         "gmail": {
-          "type": "http",
-          "url": "https://mcp.claude.ai/mcp/gmail"
+          "command": "npx",
+          "args": ["-y", "@monsoft/mcp-gmail"]
         }
       }
     },
     {
       "name": "google-drive",
-      "description": "Google Drive integration — list, search, read, create, copy, and download files. Authenticates via OAuth.",
-      "version": "latest",
+      "description": "Google Drive and Sheets integration — list, search, read, create, and download files. Authenticates via OAuth.",
+      "version": "0.2.0",
       "category": "productivity",
-      "tags": ["google-drive", "google", "files", "documents", "oauth"],
+      "tags": ["google-drive", "google", "files", "documents", "sheets", "oauth"],
       "strict": false,
-      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gdrive" },
-      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "source": { "source": "npm", "package": "@isaacphi/mcp-gdrive" },
+      "author": { "name": "Community", "url": "https://npmjs.com/package/@isaacphi/mcp-gdrive" },
       "mcpServers": {
         "google-drive": {
-          "type": "http",
-          "url": "https://mcp.claude.ai/mcp/gdrive"
+          "command": "npx",
+          "args": ["-y", "@isaacphi/mcp-gdrive"]
         }
       }
     },
     {
       "name": "google-calendar",
-      "description": "Google Calendar integration — list, create, update, and delete events, respond to invites, suggest meeting times. Authenticates via OAuth.",
-      "version": "latest",
+      "description": "Google Calendar integration — list, create, update, and delete events. Authenticates via OAuth.",
+      "version": "0.0.5",
       "category": "productivity",
       "tags": ["google-calendar", "google", "calendar", "events", "scheduling", "oauth"],
       "strict": false,
-      "source": { "source": "url", "url": "https://mcp.claude.ai/mcp/gcal" },
-      "author": { "name": "Anthropic", "url": "https://anthropic.com" },
+      "source": { "source": "npm", "package": "mcp-google-calendar" },
+      "author": { "name": "Community", "url": "https://npmjs.com/package/mcp-google-calendar" },
       "mcpServers": {
         "google-calendar": {
-          "type": "http",
-          "url": "https://mcp.claude.ai/mcp/gcal"
+          "command": "npx",
+          "args": ["-y", "mcp-google-calendar"]
         }
       }
     }
